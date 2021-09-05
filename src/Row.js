@@ -3,6 +3,10 @@ import axios from "./axios";
 import "./Row.css";
 import YouTube from "react-youtube";
 import movieTrailer from "movie-trailer";
+import Slider from "react-slick";
+
+/* import { Swiper, SwiperSlide } from "swiper/react"; */
+/* import "swiper/css"; */
 
 function Row({ title, fetchUrl, isLargeRow = false }) {
   const [movies, setMovies] = useState([]);

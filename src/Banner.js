@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Banner.css";
 import axios from "./axios";
 import requests from "./requests";
+import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 
 function Banner() {
   const [movie, setMovie] = useState([]);
@@ -19,8 +20,6 @@ function Banner() {
 
     fetchData();
   }, []);
-
-  console.log(movie);
 
   function truncate(string, n) {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
@@ -42,8 +41,14 @@ function Banner() {
           {movie?.name || movie?.title || movie?.original_name}
         </h1>
         <div className="banner__buttons">
-          <button className="banner__button">Play</button>
-          <button className="banner__button banner__moreInfo">More info</button>
+          <button className="banner__button">
+            <PlayArrow />
+            Play
+          </button>
+          <button className="banner__button banner__moreInfo">
+            <InfoOutlined />
+            More info
+          </button>
         </div>
         <h1 className="banner__description">
           {truncate(movie?.overview, 200)}

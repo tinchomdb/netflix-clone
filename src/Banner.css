@@ -15,6 +15,7 @@
   font-size: 3rem;
   font-weight: 700;
   padding-bottom: 0.3rem;
+  text-shadow: 2px 2px 2px black;
 }
 
 .banner__description {
@@ -22,14 +23,20 @@
   line-height: 1.3;
   padding-top: 1rem;
   font-size: 0.8rem;
+  width: 100%;
   max-width: 360px;
   height: 80px;
+  text-shadow: 2px 2px 2px black;
 }
 
 .banner--fadeBottom {
   height: 7.4rem;
 
   background-image: linear-gradient(transparent, #111);
+}
+
+.banner__buttons {
+  display: flex;
 }
 
 .banner__button {
@@ -46,6 +53,9 @@
   padding-left: 2rem;
   padding-right: 2rem;
   margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .banner__button:hover {
