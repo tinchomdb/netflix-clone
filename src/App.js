@@ -1,26 +1,51 @@
-import React from "react";
-import HomeScreen from "./HomeScreen";
-import Banner from "./Banner";
-import requests from "./requests";
-import Row from "./Row";
-
+import React, { useEffect } from "react";
+import HomeScreen from "./screens/HomeScreen";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
+import LoginScreen from "./screens/LoginScreen";
+import { useDispatch } from "react-redux";
+import { login, logout, selectUser } from "./features/counter/userSlice";
+import { useSelector } from "react-redux";
+import ProfileScreen from "./screens/ProfileScreen";
 
 function App() {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (userAuth) => {
+      if (userAuth) {
+        dispatch(
+          login({
+            uid: userAuth.uid,
+            email: userAuth.email,
+          })
+        );
+      } else {
+        dispatch(logout);
+      }
+    });
+    return unsubscribe;
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <HomeScreen />
-      <Banner />
-      <Row
-        title="Netflix Originals"
-        fetchUrl={requests.fetchNetflixOriginals}
-        isLargeRow={true}
-      />
-      <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
-      <Row title="Action Movies" fetchUrl={requests.fetchComedyMovies} />
-      <Row title="Horror" fetchUrl={requests.fetchHorrorMovies} />
-      <Row title="Romance" fetchUrl={requests.fetchRomanceMovies} />
-      <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
+    <div className="app">
+      <Router>
+        {!user ? (
+          <LoginScreen />
+        ) : (
+          <Switch>
+            <Route path="/profile">
+              <ProfileScreen />
+            </Route>
+            <Route path="/">
+              <HomeScreen />
+            </Route>
+          </Switch>
+        )}
+      </Router>
     </div>
   );
 }
