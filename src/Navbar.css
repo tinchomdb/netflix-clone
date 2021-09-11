@@ -29,9 +29,15 @@
   cursor: pointer;
 }
 
-.nav__avatar {
+.nav__user {
   position: fixed;
   right: 20px;
-  width: 30px;
   cursor: pointer;
+  display: flex;
+  color: white;
+}
+
+.nav__avatar {
+  margin-left: 10px;
+  width: 30px;
 }
