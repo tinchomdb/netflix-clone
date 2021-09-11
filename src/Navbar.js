@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import "./Navbar.css";
 import { useSelector } from "react-redux";
 import { selectUser } from "./features/counter/userSlice";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [visible, setVisible] = useState(false);
@@ -34,14 +35,18 @@ function Navbar() {
           alt=""
         ></img>
 
-        <div className="nav__user" onClick={() => history.push("/profile")}>
-          <h5>{user.email}</h5>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-            className="nav__avatar"
-            alt=""
-          ></img>
-        </div>
+        <Link to="/profile">
+          <div
+            className="nav__user" /* onClick={() => history.push("/profile")} */
+          >
+            <h5>{user.email}</h5>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+              className="nav__avatar"
+              alt=""
+            ></img>
+          </div>
+        </Link>
       </div>
     </div>
   );

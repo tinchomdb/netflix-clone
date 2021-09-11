@@ -34,6 +34,19 @@
   transition: all 450ms;
 }
 
+.picContainer {
+  display: flex !important;
+
+  /* min-width: 300px; */
+  flex-wrap: nowrap !important;
+}
+
+.space {
+  min-width: 10px;
+
+  z-index: 300;
+}
+
 /* .row__poster::after {
   content: " ";
   width: 10px;

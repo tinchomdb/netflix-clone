@@ -44,7 +44,7 @@
 
 .content {
   position: relative;
-  top: 30%;
+  top: 15%;
   text-align: center;
   z-index: 1;
   color: white;
@@ -68,20 +68,6 @@
   font-weight: 400;
 }
 
-.loginScreen__input > form > input {
-  padding: 11.5px;
-  padding-bottom: 8.5px;
-  outline-width: 0;
-  height: 29px;
-  width: 45%;
-  border: none;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  max-width: 600px;
-
-  margin-bottom: 15px;
-}
-
 .loginScreen__getStarted {
   padding: 15px 20px;
   font-size: 1rem;
@@ -90,8 +76,7 @@
   border: none;
   font-weight: 600;
   cursor: pointer;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 5px;
 }
 
 .loginScreen__body {

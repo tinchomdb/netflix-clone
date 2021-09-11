@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
-
 import YouTube from "react-youtube";
 import movieTrailer from "movie-trailer";
 /* import {
@@ -84,11 +83,20 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 9,
-    slidesToScroll: 9,
+    slidesToShow: 10,
+    slidesToScroll: 10,
     responsive: [
       {
-        breakpoint: 1600,
+        breakpoint: 1670,
+        settings: {
+          slidesToShow: 9,
+          slidesToScroll: 9,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1500,
         settings: {
           slidesToShow: 8,
           slidesToScroll: 8,
@@ -97,7 +105,7 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
         },
       },
       {
-        breakpoint: 1450,
+        breakpoint: 1340,
         settings: {
           slidesToShow: 7,
           slidesToScroll: 7,
@@ -115,20 +123,18 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
         },
       },
       {
-        breakpoint: 1050,
+        breakpoint: 1020,
         settings: {
           slidesToShow: 5,
           slidesToScroll: 5,
-          infinite: true,
-          dots: true,
+          initialSlide: 2,
         },
       },
       {
-        breakpoint: 900,
+        breakpoint: 860,
         settings: {
           slidesToShow: 4,
           slidesToScroll: 4,
-          initialSlide: 2,
         },
       },
       {
@@ -139,7 +145,7 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 530,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -164,16 +170,20 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
           (movie) =>
             ((isLargeRow && movie.poster_path) ||
               (!isLargeRow && movie.backdrop_path)) && (
-              <img
-                className={`row__poster ${isLargeRow && "row__posterLarge"}`}
-                key={movie.id}
-                onClick={() => handleClick(movie)}
-                src={
-                  baseImgURL +
-                  (isLargeRow ? movie.poster_path : movie.backdrop_path)
-                }
-                alt={movie.name}
-              ></img>
+              <div className="picContainer">
+                <img
+                  className={`row__poster ${isLargeRow && "row__posterLarge"}`}
+                  key={movie.id}
+                  onClick={() => handleClick(movie)}
+                  src={
+                    baseImgURL +
+                    (isLargeRow ? movie.poster_path : movie.backdrop_path)
+                  }
+                  alt={movie.name}
+                ></img>
+
+                <div className="space"></div>
+              </div>
             )
         )}
       </Slider>

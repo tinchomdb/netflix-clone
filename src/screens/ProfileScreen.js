@@ -4,9 +4,16 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../features/counter/userSlice";
 import Navbar from "../Navbar";
 import "./ProfileScreen.css";
+import { useHistory } from "react-router";
 
 function ProfileScreen() {
   const user = useSelector(selectUser);
+  const history = useHistory();
+
+  function signOut() {
+    getAuth().signOut();
+    history.push("/");
+  }
 
   return (
     <div className="profileScreen">
@@ -22,10 +29,7 @@ function ProfileScreen() {
             <h2>{user.email}</h2>
             <div className="profileScreen__plans">
               <h3>Plans</h3>
-              <button
-                onClick={() => getAuth().signOut()}
-                className="profileScreen__signOut"
-              >
+              <button onClick={signOut} className="profileScreen__signOut">
                 Sign Out
               </button>
             </div>

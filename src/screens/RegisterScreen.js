@@ -4,10 +4,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import firebaseConfig from "../firebase";
 import "./SignInScreen.css";
+import { useHistory } from "react-router";
 
 initializeApp(firebaseConfig);
 
 function RegisterScreen() {
+  const history = useHistory();
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
@@ -20,7 +22,8 @@ function RegisterScreen() {
       passwordRef.current.value
     )
       .then((authUser) => {
-        console.log(authUser);
+        /* console.log(authUser); */
+        history.push("/");
       })
       .catch((error) => {
         alert(error.message);

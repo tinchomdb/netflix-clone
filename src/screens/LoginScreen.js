@@ -36,12 +36,8 @@ function Login() {
           <div class="content">
             <h1>Unlimited films, TV programmes and more.</h1>
             <h2>Watch anywhere. Cancel at any time.</h2>
-            <h3>
-              Ready to watch? Enter your email to create or restart your
-              membership
-            </h3>
+            <h3>Ready to watch? Click the button to start your membership</h3>
             <div className="loginScreen__input">
-              <input type="email" placeholder="Email Address" />
               <button
                 className="loginScreen__getStarted"
                 onClick={() => funcToggler(false)}
