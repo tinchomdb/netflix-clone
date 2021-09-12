@@ -24,8 +24,8 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
   const baseImgURL = "https://image.tmdb.org/t/p/w300/";
 
   const opts = {
-    /* height: "300",
-    width: "100%", */
+    height: "300",
+    width: "100%",
     playerVars: {
       autoplay: 1,
     },
