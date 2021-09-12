@@ -1,6 +1,6 @@
 .banner {
   position: relative;
-  height: 448px;
+  /* height: 448px; */
   color: white;
   object-fit: contain;
 }
@@ -8,7 +8,7 @@
 .banner__contents {
   margin-left: 30px;
   padding-top: 140px;
-  height: 190px;
+  /* height: 190px; */
 }
 
 .banner__title {
@@ -58,6 +58,12 @@
   justify-content: center;
 }
 
+.banner__button > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .banner__button:hover {
   background-color: #ccc;
   transition: all 0.2s;
@@ -71,4 +77,22 @@
 .banner__moreInfo:hover {
   background-color: rgba(109, 109, 110, 0.4);
   transition: all 0.2s;
+}
+
+.banner__youtube {
+  margin-top: 20px;
+  margin-right: 20px;
+  height: 300px;
+  width: 95%;
+  max-width: 800px;
+}
+
+.banner__noTrailer {
+  margin-top: 15px;
+}
+
+@media only screen and (min-width: 800px) {
+  .youtube {
+    height: 500px;
+  }
 }

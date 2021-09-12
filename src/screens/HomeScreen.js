@@ -11,15 +11,17 @@ function HomeScreen() {
       <Navbar />
       <Banner />
       <Row
-        title="Netflix Originals"
-        fetchUrl={requests.fetchNetflixOriginals}
+        title="Trending Now"
+        fetchUrl={requests.fetchTrending}
         isLargeRow={true}
       />
-      <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
-      <Row title="Action Movies" fetchUrl={requests.fetchComedyMovies} />
+
+      <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} />
+      <Row title="Animated Movies" fetchUrl={requests.fetchAnimatedMovies} />
+      <Row title="Crime Movies" fetchUrl={requests.fetchCrimeMovies} />
+      <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
       <Row title="Horror" fetchUrl={requests.fetchHorrorMovies} />
       <Row title="Romance" fetchUrl={requests.fetchRomanceMovies} />
-      <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
     </div>
   );
 }
